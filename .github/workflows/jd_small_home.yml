@@ -1,0 +1,33 @@
+name: jd_small_home
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '16 16 * * *'
+  watch:
+    types: started
+  repository_dispatch:
+    types: jd_small_home
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    if: github.event.repository.owner.id == github.event.sender.id
+    steps:
+      - name: Checkout
+        run: |
+          git clone https://github.com/lxk0301/jd_scripts.git ~/scripts
+      - name: Use Node.js 10.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 10.x
+      - name: npm install
+        run: |
+          cd ~/scripts
+          npm install
+      - name: '运行 【东东小窝】'
+        run: |
+          cd ~/scripts
+          node jd_small_home.js
+        env:
+          JD_COOKIE: ${{ secrets.JD_COOKIE }}

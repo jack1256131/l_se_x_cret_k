@@ -160,7 +160,7 @@ async function helpFriends() {
   if (!$.updatePkActivityIdRes) await updateInviteCodeCDN();
   for (let item of $.inviteCodes.inviteCode) {
     if (!item) continue
-    await createAssistUser(item, $.createAssistUserID || "1318106976846299138");
+    await createAssistUser(item, $.createAssistUserID);
   }
 }
 async function doAllTask() {

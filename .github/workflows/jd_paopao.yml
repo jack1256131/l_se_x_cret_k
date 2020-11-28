@@ -19,7 +19,7 @@ jobs:
     steps:
       - name: Checkout
         run: |
-          git clone https://github.com/799953468/Quantumult-X.git ~/Quantumult-X
+          git clone -b master https://github.com/799953468/Quantumult-X.git ~/Quantumult-X
       - name: Use Node.js 10.x
         uses: actions/setup-node@v1
         with:

@@ -27,6 +27,7 @@ let jdNotify = true;//是否关闭通知，false打开通知推送，true关闭�
 //IOS等用户直接用NobyDa的jd cookie
 let cookiesArr = [], cookie = '', message;
 let helpAuthor = true
+let shareDate = ""
 if ($.isNode()) {
   Object.keys(jdCookieNode).forEach((item) => {
     cookiesArr.push(jdCookieNode[item])
@@ -104,6 +105,7 @@ function index(info=false) {
                 'inviteCode': data.data.result.inviteCode,
                 'shareDate': data.data.result.shareDate
               }
+shareDate = helpInfo.shareDate
               // console.log(helpInfo)
               for(let task of data.data.result.taskInfos){
                 if (task.type === 4) {
@@ -142,7 +144,11 @@ function index(info=false) {
 async function helpFriends() {
   $.canHelp = true
   //if (helpAuthor && $.authorCode) {
-    for(let helpInfo of ['eU9Yau20ZK9y-T_Wy3EV3g', 'eU9YL4XOE5Zsjw6njRFr', 'eU9Yar3jM_Rz9GjVwnIQ0g', 'eU9Yau7gZK4h9WeBnXJHhw', 'ZE9JM5bUJptHhTmgmRJG', 'eU9Yau6zYfwmpWmGynBAhQ', 'eU9Yau20YvpzomncynoW1w']){
+    for(let shareCode of ['eU9Yau20ZK9y-T_Wy3EV3g', 'eU9YL4XOE5Zsjw6njRFr', 'eU9Yar3jM_Rz9GjVwnIQ0g', 'eU9Yau7gZK4h9WeBnXJHhw', 'ZE9JM5bUJptHhTmgmRJG', 'eU9Yau6zYfwmpWmGynBAhQ', 'eU9Yau20YvpzomncynoW1w']){
+      let helpInfo = {
+                'inviteCode': shareCode,
+                'shareDate':shareDate
+              }
       console.log(`去帮助好友${helpInfo}`)
       await helpFriend(helpInfo)
       if(!$.canHelp) break

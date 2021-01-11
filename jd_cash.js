@@ -141,14 +141,14 @@ function index(info=false) {
 }
 async function helpFriends() {
   $.canHelp = true
-  if (helpAuthor && $.authorCode) {
-    for(let helpInfo of $.authorCode){
-      console.log(`去帮助好友${helpInfo['inviteCode']}`)
+  //if (helpAuthor && $.authorCode) {
+    for(let helpInfo of ['eU9Yau20ZK9y-T_Wy3EV3g', 'eU9YL4XOE5Zsjw6njRFr', 'eU9Yar3jM_Rz9GjVwnIQ0g', 'eU9Yau7gZK4h9WeBnXJHhw', 'ZE9JM5bUJptHhTmgmRJG', 'eU9Yau6zYfwmpWmGynBAhQ', 'eU9Yau20YvpzomncynoW1w']){
+      console.log(`去帮助好友${helpInfo}`)
       await helpFriend(helpInfo)
       if(!$.canHelp) break
       await $.wait(1000)
     }
-  }
+  //}
 }
 function helpFriend(helpInfo) {
   return new Promise((resolve) => {

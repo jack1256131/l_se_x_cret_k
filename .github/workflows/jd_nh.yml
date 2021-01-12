@@ -28,7 +28,7 @@ jobs:
         run: |
           cd ~/scripts
           npm install
-      - name: '运行 【口袋书店】'
+      - name: '运行 【京东年货节】'
         run: |
           cd ~/scripts
           node jd_nh.js

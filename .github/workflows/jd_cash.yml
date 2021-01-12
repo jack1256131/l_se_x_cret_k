@@ -19,7 +19,7 @@ jobs:
     steps:
       - name: Checkout
         run: |
-          git clone -b master https://github.com/borrrrring/l_se_x_cret_k.git ~/scripts
+          git clone -b master https://github.com/lxk0301/jd_scripts.git ~/scripts
       - name: Use Node.js 10.x
         uses: actions/setup-node@v1
         with:
@@ -37,11 +37,9 @@ jobs:
           JD_DEBUG: ${{ secrets.JD_DEBUG }}
           PUSH_KEY: ${{ secrets.PUSH_KEY }}
           BARK_PUSH: ${{ secrets.BARK_PUSH }}
-          FRUITSHARECODES: ${{ secrets.FRUITSHARECODES }}
-          FRUIT_BEAN_CARD: ${{ secrets.FRUIT_BEAN_CARD }}
+          JD_CASH_SHARECODES: ${{ secrets.JD_CASH_SHARECODES }}
           TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
           TG_USER_ID: ${{ secrets.TG_USER_ID }}
-          FRUIT_NOTIFY_CONTROL: ${{ secrets.FRUIT_NOTIFY_CONTROL }}
           BARK_SOUND: ${{ secrets.BARK_SOUND }}
           DD_BOT_TOKEN: ${{ secrets.DD_BOT_TOKEN }}
           DD_BOT_SECRET: ${{ secrets.DD_BOT_SECRET }}
